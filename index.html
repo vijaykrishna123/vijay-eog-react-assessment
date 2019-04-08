@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <!--
+      manifest.json provides metadata used when your web app is added to the
+      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
+    -->
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="%PUBLIC_URL%/favicon.ico" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/jquery-ui.min.js"
+    ></script>
+    <script type="text/javascript" src="%PUBLIC_URL%/dtm/utils.min.js"></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/granite.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/foundation-jquery.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/cg-foundationbase.min.js"
+    ></script>
+
+    <!--
+      Notice the use of %PUBLIC_URL% in the tags above.
+      It will be replaced with the URL of the `public` folder during the build.
+      Only files inside the `public` folder can be referenced from the HTML.
+
+      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+      work correctly both with client-side routing and a non-root public URL.
+      Learn how to configure a non-root public URL by running `npm run build`.
+    -->
+    <title>Creative WorkBench</title>
+    <script charset="UTF-8">
+      if (/dev/.test(window.location.href)) {
+        console.log("In dev");
+        window["adrum-app-key"] = "AD-AAB-AAM-DFD";
+      } else if (/stg/.test(window.location.href)) {
+        console.log("In stg");
+
+        window["adrum-app-key"] = "AD-AAB-AAM-EAX";
+      } else if (/localhost/.test(window.location.href)) {
+        console.log("In local");
+
+        window["adrum-app-key"] = "AD-AAB-AAM-DFD";
+      } else {
+        console.log("In prod");
+        window["adrum-app-key"] = "AD-AAB-AAM-DZS";
+      }
+      window["adrum-start-time"] = new Date().getTime();
+      (function(config) {
+        config.adrumExtUrlHttp = "http://cdn.appdynamics.com";
+        config.adrumExtUrlHttps = "https://cdn.appdynamics.com";
+        config.beaconUrlHttp = "http://col.eum-appdynamics.com";
+        config.beaconUrlHttps = "https://col.eum-appdynamics.com";
+        config.xd = { enable: false };
+        config.spa = {
+          spa2: true
+        };
+      })(window["adrum-config"] || (window["adrum-config"] = {}));
+    </script>
+    <script
+      src="//cdn.appdynamics.com/adrum/adrum-4.5.4.1467.js"
+      type="text/javascript"
+      charset="UTF-8"
+    ></script>
+    <script src="https://ckeditor.com/apps/ckfinder/3.4.5/ckfinder.js"></script>
+    <script type="text/javascript">
+      (function() {
+        window.ContextHub = window.ContextHub || {};
+        ContextHub.Constants = ContextHub.Constants || {};
+        ContextHub.Constants.ANONYMOUS_HOME =
+          "%PUBLIC_URL%/home/users/t/tvJKCOTPrrwU2zDvJ6pl";
+      })();
+    </script>
+    <script
+      src="%PUBLIC_URL%/dtm/contexthub.kernel.js"
+      type="text/javascript"
+    ></script>
+    <script>
+      var isDtmAnalytics = true;
+    </script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/vendors.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/head-dtm.min.js"
+    ></script>
+    <script src="//assets.adobedtm.com/6402cbf3e8adf66bbf619838a332c8616836b662/satelliteLib-83bc69e1372746599d2e81d7c649fe0b7c2dc38b.js"></script>
+    <script>
+      var doTrackPage = false;
+    </script>
+  </head>
+
+  <body>
+    <noscript> You need to enable JavaScript to run this app. </noscript>
+
+    <script type="text/javascript">
+      (function($, undefined) {
+        var ddPageStore = Capgroup.ContextHub.stores.page;
+
+        function setPageInfoData() {
+          ddPageStore.setItem("info/name", "CWB > Dashboard");
+          ddPageStore.pushItem(
+            "info/breadCrumbList",
+            "CWB,Dashboard".split(",")
+          );
+        }
+
+        function setPageCategoryData() {
+          ddPageStore.setItem("category/brand", "Capital Group");
+          ddPageStore.setItem("category/audience", "CWB");
+          ddPageStore.setItem("category/country", "us");
+          ddPageStore.setItem("category/channel", "Capital Group -CWB");
+          ddPageStore.setItem("category/language", "en");
+          ddPageStore.setItem("category/region", "");
+        }
+        setPageInfoData();
+        setPageCategoryData();
+        Capgroup.ContextHub.clientSideDefaultDataService.setContextHubData();
+
+        $(document).ready(function($) {
+          Analytics.populateInternalCampaignData();
+        });
+      })(jQuery);
+    </script>
+
+    <div id="root"></div>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script
+      type="text/javascript"
+      src="%PUBLIC_URL%/dtm/foot-dtm.min.js"
+    ></script>
+    <script type="text/javascript">
+      try {
+        Capgroup.ContextHub.ContextHubDataSet.nextGenSendingData = true;
+        Capgroup.ContextHub.ContextHubDataSet.legacySendingData = true;
+
+        /* patching dtm so that it only loads appMessurment once per
+         * full page load So that Single Page Apps that also call
+         * _satellite.pageBottom don't cause browser to run out of
+         * memory because it keeps request and loading AppMessurement
+         * over and over again
+         */
+        _satellite.loadScript = (function() {
+          var origLoadScript = _satellite.loadScript;
+
+          return function(src, fn) {
+            var scriptFound;
+
+            if ((src + "").indexOf("s-code-contents") !== -1) {
+              scriptFound = $('script[src="' + src + '"]')[0];
+              if (scriptFound) {
+                return fn && fn();
+              }
+            }
+            origLoadScript.apply(_satellite, arguments);
+          };
+        })();
+      } catch (e) {
+        console.error(e);
+      }
+    </script>
+  </body>
+</html>
